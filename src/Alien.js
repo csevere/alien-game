@@ -1,6 +1,6 @@
 //required dependencies 
 import React, {Component} from 'react';
-import scaryaliens from './scaryaliens.jpeg';
+import scaryaliens from './Images/scaryaliens.jpeg';
 
 
 class Alien extends Component{
@@ -8,7 +8,7 @@ class Alien extends Component{
 		
 		return(
 			
-			<div  className = "col-md-3 col-md-offset-3 text-center" id = "alien">
+			<div  className = "text-center" id = "alien">
 	            <img src = {scaryaliens} name = "alienImage"/>
 	        </div>  
 

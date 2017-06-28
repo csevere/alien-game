@@ -6,8 +6,8 @@ class Message extends Component{
 	render(){
 		
 		return(
-			<div className = "col-md-10 text-center">
-				<div id = "message" div class = "text-center">
+			<div className = "text-center">
+				<div id = "message" className = "text-center">
 					Terrifying aliens have approached you! Fight or Run Away?
 				</div> 
 			</div> 

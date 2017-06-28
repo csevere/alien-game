@@ -1,5 +1,8 @@
 *{
-  color:white;
+  color: white;
+  font-family: 'Ek Mukta', sans-serif;
+
+
 }
 
 #bg{
@@ -11,27 +14,31 @@
   min-height: 100%;
   z-index: -1;
 
+}
 
+audio {
+  float: right;
+  margin-top: 10px;
 }
 
 
 
 .header{
-    position: fixed;
-    left: 35px;
-    color: white;
-    text-shadow: 0 1px 0 #ccc,
-                 0 2px 0 #c9c9c9,
-                 0 3px 0 #bbb,
-                 0 4px 0 #b9b9b9,
-                 0 5px 0 #aaa,
-                 0 6px 1px rgba(0,0,0,.1),
-                 0 0 5px rgba(0,0,0,.1),
-                 0 1px 3px rgba(0,0,0,.3),
-                 0 3px 5px rgba(0,0,0,.2),
-                 0 5px 10px rgba(0,0,0,.25),
-                 0 10px 10px rgba(0,0,0,.2),
-                 0 20px 20px rgba(0,0,0,.15);
+  color: white;
+  font-family: 'Orbitron', sans-serif !important;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
 }
 
 
@@ -54,27 +61,35 @@
 }
 
 #bars{
-    position: relative;
-    background: green;
+  background: green;
+  display: flex;
+  font-size: 17px;
+  padding: 10px;
 
 }
 
 #dice{
-  position: relative;
-  top: 60px;
+ margin-top: 38px; 
 }
 
 #alien{
   position: static;
   top: 80px;
   z-index: -1;
+  margin-top: 80px;
 }
 
 #buttons{
-  position: relative;
-  top: 29px;
+
+ 
 }
 
+.btn{
+  margin-top: 10px; 
+  margin-right: 10px;
+  font-size: 20px; 
+
+}
 .progress{
   padding-right: 45px; 
 }
