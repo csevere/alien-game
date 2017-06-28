@@ -9,7 +9,7 @@ class Alien extends Component{
 		return(
 			
 			<div  className = "text-center" id = "alien">
-	            <img src = {scaryaliens} name = "alienImage"/>
+	            <img src = {scaryaliens} name = "alienImage" alt = ""/>
 	        </div>  
 
 		)

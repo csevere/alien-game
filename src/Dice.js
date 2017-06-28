@@ -4,18 +4,16 @@ import alienassets from './alien-assets/d1.gif';
 import Buttons from './Buttons';
 
 
-class Dice extends Component{
-	render(){
+function Dice(props){		
+	return(
 		
-		return(
-			
-			<div id = "dice" className = "text-center">
-	            <img src = {alienassets} name = "die1Image"/>
-	            <img src = {alienassets} name = "die2Image"/>
-          	</div> 
+		<div id = "dice" className = "text-center">
+            <img src = {props.die1} name = "die1Image"/>
+            <img src = {props.die2} name = "die2Image"/>
+      	</div> 
 
-		)
-	}
+	)
+	
 }
 
 export default Dice 

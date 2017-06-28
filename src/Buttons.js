@@ -25,19 +25,21 @@ class Buttons extends Component{
 		console.log("it works")  
 	}
 
-
+	//when state changes, it rerenders; decide what to show 
 
 	render(){
 
 		var randomDie1 = Math.ceil(Math.random() * 6);
         var randomDie2 = Math.ceil(Math.random() * 6);
 
-        var die1 = {alienassets} + randomDie1 + ".gif";
-        var die2 = {alienassets} + randomDie2 + ".gif";
+        var die1 = "alien-assets/d" + randomDie1 + ".gif";
+        var die2 = "alien-assets/d" + randomDie2 + ".gif";
 		
 		return(
 			<div id = "buttons" className = "text-center">
 	            <button className = "btn btn-default" onClick = {this.rollDice}>Fight!</button>
+	            <Dice src = {die1}/>
+	            <Dice src = {die2}/>  
           	</div>
 
 
