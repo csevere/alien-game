@@ -158,7 +158,7 @@ class Game extends Component{
       image: image
     })
 
-}
+  }
 
 
  handleEscape(){
@@ -186,7 +186,7 @@ class Game extends Component{
       image: image
     })
 
-}
+  }
 
 
   handleStamina(){
@@ -214,43 +214,42 @@ class Game extends Component{
       image:image  
     })
  
-}
+  }
 
 
   handleHealth(){
 
-  if(userHealth_val <= 250){
-      userHealth_val += 50;
-      message = "You gained 50 Health Points!";
-      image = "/Images/health.png";
+    if(userHealth_val <= 250){
+        userHealth_val += 50;
+        message = "You gained 50 Health Points!";
+        image = "/Images/health.png";
 
-  }else{
-    message = "You have enough Health!";
-    image = "/Images/full.jpg"
-    
+    }else{
+      message = "You have enough Health!";
+      image = "/Images/full.jpg"
+      
 
-  }if(userHealth_val <= 0){
-      image = "/Images/you_died.jpg"; 
-      message = "GAME OVER! The Aliens are now experimenting on your corpse.";
-      actionPoints_val = 0;
+    }if(userHealth_val <= 0){
+        image = "/Images/you_died.jpg"; 
+        message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+        actionPoints_val = 0;
+    }
+   
+    this.setState({
+      toggleOn: !this.state.toggleOn,
+      userHealth: userHealth_val,
+      message: message,
+      image:image  
+    })
+
   }
- 
-  this.setState({
-    toggleOn: !this.state.toggleOn,
-    userHealth: userHealth_val,
-    message: message,
-    image:image  
-  })
-
-}
 
 
   //when state changes, it rerenders the page; decide what to show 
 
   render(){ 
 
- 
-      return(
+   return(
       <div>
 
           <div  className = "text-center" id = "alien">
@@ -262,16 +261,16 @@ class Game extends Component{
          
 
           <div className = "text-center"> 
-                <div id = "bars" name = "progress">
-                  Your Health
-                  <progress id = "userHealth" value = {this.state.userHealth} max = "500"></progress>
-                  Your Action Points
-                  <progress id = "actionPoints" value = {this.state.actionPoints} max = "100"></progress>
-                  {"Alien's Health"}
-                  <progress id = "alienHealth" value = {this.state.alienHealth} max = "1000"></progress>
-                  {"Alien's Action Points"}
-                  <progress id = "a_actionPoints" value = {this.state.a_actionPoints} max = "30"></progress>
-              </div>
+            <div id = "bars" name = "progress">
+                Your Health
+                <progress id = "userHealth" value = {this.state.userHealth} max = "500"></progress>
+                Your Action Points
+                <progress id = "actionPoints" value = {this.state.actionPoints} max = "100"></progress>
+                {"Alien's Health"}
+                <progress id = "alienHealth" value = {this.state.alienHealth} max = "1000"></progress>
+                {"Alien's Action Points"}
+                <progress id = "a_actionPoints" value = {this.state.a_actionPoints} max = "30"></progress>
+            </div>
           </div>  
 
           <button className = "btn btn-default" onClick = {this.handleFight}>Fight!</button>
@@ -285,9 +284,10 @@ class Game extends Component{
             <img src = {this.state.die1} alt = ""/>
             <img src = {this.state.die2} alt = ""/>
           </div>
+
       </div>
 
-      )
+    )
   }
 
 }
