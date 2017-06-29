@@ -8,7 +8,7 @@ class Message extends Component{
 		return(
 			<div className = "text-center">
 				<div id = "message" className = "text-center">
-					Terrifying aliens have approached you! Fight or Run Away?
+					Terrifying aliens have breached your ship! Fight or Run Away?
 				</div> 
 			</div> 
 

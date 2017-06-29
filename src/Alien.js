@@ -1,19 +1,17 @@
 //required dependencies 
 import React, {Component} from 'react';
-import scaryaliens from './Images/scaryaliens.jpeg';
 
 
-class Alien extends Component{
-	render(){
+
+function Alien(props) {
+	return(
 		
-		return(
-			
-			<div  className = "text-center" id = "alien">
-	            <img src = {scaryaliens} name = "alienImage" alt = ""/>
-	        </div>  
+		<div  className = "text-center" id = "alien">
+            <img src = {props.image} name = "alienImage" alt = ""/>
+        </div>  
 
-		)
-	}
+	)
+
 }
 
 export default Alien

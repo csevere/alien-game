@@ -19,6 +19,7 @@
 audio {
   float: right;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 
@@ -55,9 +56,7 @@ audio {
 #message{
     font-size: 20px;
     background: black;
-    color: white;
-    position: relative;
-    margin-top: 20px; 
+    color: white; 
 }
 
 #bars{
@@ -69,20 +68,9 @@ audio {
 }
 
 #dice{
- margin-top: 38px; 
+ margin-top: 10px; 
 }
 
-#alien{
-  position: static;
-  top: 80px;
-  z-index: -1;
-  margin-top: 80px;
-}
-
-#buttons{
-
- 
-}
 
 .btn{
   margin-top: 10px; 
