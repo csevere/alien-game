@@ -1,6 +1,8 @@
 //required dependencies 
 import React, {Component} from 'react';
 
+// set the variables of progress bars to use downstairs
+
 var userHealth_val = 500;
 var actionPoints_val = 100;
 var alienHealth_val = 1000;
@@ -13,8 +15,7 @@ var image = "";
 class Game extends Component{
   constructor(){
     super();
-    // pass the values and keys of progress bars to use downstairs
-    //set the initial state here! 
+    //set the initial state here to use downstairs! 
     this.state = {
       handleFight: true,
       handleHelp: true,
@@ -25,26 +26,25 @@ class Game extends Component{
       image: "/Images/scaryaliens.jpeg" 
    
     }
+    //lots of binding for each click event 
     this.handleFight = this.handleFight.bind(this)
     this.handleHelp = this.handleHelp.bind(this)
     this.handleEscape = this.handleEscape.bind(this)
     this.handleStamina = this.handleStamina.bind(this)
     this.handleHealth = this.handleHealth.bind(this)
   }
-  //you have to define die1 and die2 if you choose to add them in your objects array
-  //in this.setState
-  //you can put your algorithm in the handle click function too
  
  
 
   handleFight(){
-    // run your logic here 
-
+   
+    //getting a random number to roll random dice
     var randomDie1 = Math.ceil(Math.random() * 6);
     var randomDie2 = Math.ceil(Math.random() * 6);
 
     console.log(randomDie1 + randomDie2);
 
+    //endless if/else statements to change progress bars, messages, and images 
 
     if(actionPoints_val <= 0){
       userHealth_val -= 50;
@@ -102,9 +102,8 @@ class Game extends Component{
     }
 
         
-    
     //set the state to be changed here!!
-    //put the route of the pictures to access them from public  
+    //put the pictures in the public folder for root access  
     this.setState({
       toggleOn: !this.state.toggleOn,
       die1: "/alien-assets/d" + randomDie1 + ".gif",
@@ -117,8 +116,9 @@ class Game extends Component{
       image: image
     })
 
-    console.log("it works")  
+    // console.log("it works")  
   }
+
 
 
   handleHelp(){
@@ -147,9 +147,7 @@ class Game extends Component{
     }
 
 
-
-  //set the state to be changed here!!
-      //put the route of the pictures to access them from public  
+  //set the state to be changed here to change it downstairs!!
     this.setState({
       toggleOn: !this.state.toggleOn,
       userHealth: userHealth_val,
@@ -160,7 +158,6 @@ class Game extends Component{
       image: image
     })
 
-    console.log("it works")  
 }
 
 
@@ -189,7 +186,6 @@ class Game extends Component{
       image: image
     })
 
-    console.log("it works")  
 }
 
 
@@ -217,8 +213,7 @@ class Game extends Component{
       message: message,
       image:image  
     })
-
-    console.log("it works")  
+ 
 }
 
 
@@ -247,15 +242,11 @@ class Game extends Component{
     image:image  
   })
 
-  console.log("it works")  
 }
 
 
+  //when state changes, it rerenders the page; decide what to show 
 
-
-
-  //when state changes, it rerenders; decide what to show 
-  //in the progress, i'll be chaning the progress
   render(){ 
 
  
