@@ -43,6 +43,11 @@ class App extends Component {
           </div> 
         </div> 
 
+        <div className = "row">
+          <p>{"Copyright © 2017 Made by Carla Severe @ Digital Crafts"}</p>
+          <a target = "_blank" href = "https://github.com/csevere/alien-game">See the code on Github</a>
+        </div>
+
     
 
       </div>
