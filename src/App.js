@@ -43,9 +43,10 @@ class App extends Component {
           </div> 
         </div> 
 
-        <div className = "row">
-          <p>{"Copyright © 2017 Made by Carla Severe @ Digital Crafts"}</p>
+        <div className = "row text-center">
+          <p> {"How to play: Fight button will roll the dice. Get 7 or lower, aliens attack you, but they lose AP. 8 or higher, you attack the aliens, but you lose AP. 2, you miss and lose health and AP. 12, aliens miss and lose health and AP. Watch your AP points when you call for help. Replenish health and AP when needed. Running away takes away AP. Have fun!"}</p> 
           <a target = "_blank" href = "https://github.com/csevere/alien-game">See the code on Github</a>
+          <p>{"Copyright © 2017 Made by Carla Severe @ Digital Crafts"}</p>
         </div>
 
     

@@ -26,6 +26,7 @@ audio {
 
 .header{
   color: white;
+  margin-left: 10px;
   font-family: 'Orbitron', sans-serif !important;
   letter-spacing: 1px;
   text-shadow: 0 1px 0 #ccc,
@@ -76,8 +77,16 @@ audio {
   margin-top: 10px; 
   margin-right: 10px;
   font-size: 20px; 
+}
+
+
+.btn a{
+  text-decoration: none;
+  color: black !important;
 
 }
+
+
 .progress{
   padding-right: 45px; 
 }

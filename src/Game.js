@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 var userHealth_val = 500;
 var actionPoints_val = 100;
 var alienHealth_val = 1000;
-var a_actionPoints_val = 30;  
+var a_actionPoints_val = 50;  
 
 var message = ""; 
 var image = ""; 
@@ -27,9 +27,9 @@ class Game extends Component{
     }
     this.handleFight = this.handleFight.bind(this)
     this.handleHelp = this.handleHelp.bind(this)
-    // this.handleEscape = this.handleEscape.bind(this)
-    // this.handleStamina = this.handleStamina.bind(this)
-    // this.handleHealth = this.handleHealth.bind(this)
+    this.handleEscape = this.handleEscape.bind(this)
+    this.handleStamina = this.handleStamina.bind(this)
+    this.handleHealth = this.handleHealth.bind(this)
   }
   //you have to define die1 and die2 if you choose to add them in your objects array
   //in this.setState
@@ -47,8 +47,8 @@ class Game extends Component{
 
 
     if(actionPoints_val <= 0){
-      userHealth_val -= 25;
-      message = "You don't have any action points! The aliens have landed a mighty blow! Quick, use a Stamina Pack!"
+      userHealth_val -= 50;
+      message = "You don't have any AP! The aliens have landed a mighty blow! Quick, use a Stamina Pack!"
       image = "Images/alien_winning.jpg"
 
     }else if(randomDie1 + randomDie2 >= 8 && (randomDie1 + randomDie2 < 12)){
@@ -67,8 +67,9 @@ class Game extends Component{
 
    
     }else if(randomDie1 + randomDie1 === 12){
-      userHealth_val += 30
+      userHealth_val += 30;
       alienHealth_val -= 75;
+      a_actionPoints_val -= 10;
       message = "The aliens missed! You got a chance to replenish your health and attack!"
       image = "Images/fighting_thealien.jpg"
       console.log(userHealth_val,alienHealth_val);
@@ -97,6 +98,7 @@ class Game extends Component{
     }else if(userHealth_val <= 0){
       image = "/Images/you_died.jpg"; 
       message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+      actionPoints_val = 0; 
     }
 
         
@@ -121,24 +123,30 @@ class Game extends Component{
 
   handleHelp(){
 
+
     if(actionPoints_val >= 35){
-      alienHealth_val -= 400;
+      alienHealth_val -= 300;
       actionPoints_val -= 45;
       console.log(actionPoints_val);
       image = "/Images/woman_fighting.jpg";
       message = "Die, alien scum! You're welcome. Don't call again!";
     
-    }else if(alienHealth_val <= 0){
-      image = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
-      message = "You defeated the aliens and saved Earth!";
+    }else{
+      message = "You don't have enough AP! The aliens attacked you for 50 health points!";
+      image = "/Images/fallen.jpg";
+      userHealth_val -= 50;
 
-    }else if(userHealth_val <= 0){
+    }if(userHealth_val <= 0){
       image = "/Images/you_died.jpg"; 
       message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+      actionPoints_val = 0; 
 
-    }else{
-      message = "You don't have enough AP!";
+    }else if(alienHealth_val <= 0){
+      image = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
+      message = "You don't need help. You killed the Aliens!";
     }
+
+
 
   //set the state to be changed here!!
       //put the route of the pictures to access them from public  
@@ -156,41 +164,95 @@ class Game extends Component{
 }
 
 
-  handleHelp(){
+ handleEscape(){
 
-    if(actionPoints_val >= 35){
-      alienHealth_val -= 400;
-      actionPoints_val -= 45;
-      console.log(actionPoints_val);
-      image = "/Images/woman_fighting.jpg";
-      message = "Die, alien scum! You're welcome. Don't call again!";
-    
-    }else if(alienHealth_val <= 0){
-      image = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
-      message = "You defeated the aliens and saved Earth!";
+    actionPoints_val -= 25
+    image = "http://best-sci-fi-books.com/wp-content/uploads/2014/08/alien_invasion_600.jpg";
+    message = "The Aliens are winning! You're failing the human race, coward! Get back in the fight!";
 
-    }else if(userHealth_val <= 0){
+    if(userHealth_val <= 0){
       image = "/Images/you_died.jpg"; 
       message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+      actionPoints_val = 0; 
 
-    }else{
-      message = "You don't have enough AP!";
+    }else if(alienHealth_val <= 0){
+      image = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
+      message = "Why are you running away? You saved the world, coward!";
     }
 
-  //set the state to be changed here!!
-      //put the route of the pictures to access them from public  
     this.setState({
       toggleOn: !this.state.toggleOn,
-      userHealth: userHealth_val,
       actionPoints: actionPoints_val,
-      alienHealth: alienHealth_val,
-      a_actionPoints: a_actionPoints_val,
+      userHealth: userHealth_val,
+      alienHealh: alienHealth_val,
       message: message,
       image: image
     })
 
     console.log("it works")  
 }
+
+
+  handleStamina(){
+
+    if(actionPoints_val <= 50){
+        actionPoints_val += 15;
+        message = "You gained 15 Action Points!";
+        image = "/Images/Sci-Fi-Crate.jpg"
+
+    }else{
+      message = "You have enough Action Points!"
+      image = "/Images/full.jpg"
+
+    }if(userHealth_val <= 0){
+      image = "/Images/you_died.jpg"; 
+      message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+      actionPoints_val = 0; 
+
+    }
+   
+    this.setState({
+      toggleOn: !this.state.toggleOn,
+      actionPoints: actionPoints_val,
+      message: message,
+      image:image  
+    })
+
+    console.log("it works")  
+}
+
+
+  handleHealth(){
+
+  if(userHealth_val <= 250){
+      userHealth_val += 50;
+      message = "You gained 50 Health Points!";
+      image = "/Images/health.png";
+
+  }else{
+    message = "You have enough Health!";
+    image = "/Images/full.jpg"
+    
+
+  }if(userHealth_val <= 0){
+      image = "/Images/you_died.jpg"; 
+      message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+      actionPoints_val = 0;
+  }
+ 
+  this.setState({
+    toggleOn: !this.state.toggleOn,
+    userHealth: userHealth_val,
+    message: message,
+    image:image  
+  })
+
+  console.log("it works")  
+}
+
+
+
+
 
   //when state changes, it rerenders; decide what to show 
   //in the progress, i'll be chaning the progress
@@ -223,6 +285,10 @@ class Game extends Component{
 
           <button className = "btn btn-default" onClick = {this.handleFight}>Fight!</button>
           <button className = "btn btn-default" onClick = {this.handleHelp}>Get Help!</button>
+          <button className = "btn btn-default" onClick = {this.handleEscape}>RunAway!</button>
+          <button className = "btn btn-default" onClick = {this.handleStamina}>Use Stamina Pack!</button>
+          <button className = "btn btn-default" onClick = {this.handleHealth}>Use Health Pack!</button>
+          <button className = "btn btn-default" ><a href="javascript:history.go(0)">Replay!</a></button>
 
           <div className = "row" id = "dice">
             <img src = {this.state.die1} alt = ""/>
@@ -237,3 +303,4 @@ class Game extends Component{
 
  
 export default Game
+
