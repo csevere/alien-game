@@ -23,7 +23,7 @@ class Game extends Component{
       handleStamina: true,
       handleHealth:true,
       message: "Terrifying aliens have breached your ship! Fight or Run Away?",
-      image: "/Images/scaryaliens.jpeg" 
+      image: "Images/scaryaliens.jpeg" 
    
     }
     //lots of binding for each click event 
@@ -51,22 +51,9 @@ class Game extends Component{
       message = "You don't have any AP! The aliens have landed a mighty blow! Quick, use a Stamina Pack!"
       image = "Images/alien_winning.jpg"
 
-    }else if(randomDie1 + randomDie2 >= 8 && (randomDie1 + randomDie2 < 12)){
-      alienHealth_val -= 50;
-      actionPoints_val -= 5;
-      message = "Keep giving them hell!"
-      image = "Images/fighting_thealien.jpg"
-      console.log(alienHealth_val,actionPoints_val);
-   
-    }else if((randomDie1 + randomDie1 <= 7) && (randomDie1 + randomDie1 > 2)){
-      userHealth_val -= 30;
-      a_actionPoints_val -= 5;
-      message = "You're getting attacked!"
-      image = "Images/alien_winning.jpg"
-      console.log(userHealth_val,a_actionPoints_val);
+    }
 
-   
-    }else if(randomDie1 + randomDie1 === 12){
+    if(randomDie1 + randomDie2 == 12){
       userHealth_val += 30;
       alienHealth_val -= 75;
       a_actionPoints_val -= 10;
@@ -74,14 +61,28 @@ class Game extends Component{
       image = "Images/fighting_thealien.jpg"
       console.log(userHealth_val,alienHealth_val);
    
-    }else if(randomDie1 + randomDie1 === 2){
+    }else if(randomDie1 + randomDie2 == 2){
       userHealth_val -= 100;
       actionPoints_val -= 10; 
       message = "You missed! You got hurt and lost extra action points!"
       image = "Images/alien_winning.jpg"
       console.log(userHealth_val,actionPoints_val);
       
-    } 
+    }else if(randomDie1 + randomDie2 >= 8 && (randomDie1 + randomDie2 < 12)){
+      alienHealth_val -= 50;
+      actionPoints_val -= 5;
+      message = "Keep giving them hell!"
+      image = "Images/fighting_thealien.jpg"
+      console.log(alienHealth_val,actionPoints_val);
+   
+    }else if((randomDie1 + randomDie2 <= 7) && (randomDie1 + randomDie2 > 2)){
+      userHealth_val -= 30;
+      a_actionPoints_val -= 5;
+      message = "You're getting attacked!"
+      image = "Images/alien_winning.jpg"
+      console.log(userHealth_val,a_actionPoints_val);
+    }
+
 
     if(a_actionPoints_val <= 5){
       a_actionPoints_val += 10;
@@ -96,7 +97,7 @@ class Game extends Component{
       message = "You defeated the aliens and saved Earth!";
 
     }else if(userHealth_val <= 0){
-      image = "/Images/you_died.jpg"; 
+      image = "Images/you_died.jpg"; 
       message = "GAME OVER! The Aliens are now experimenting on your corpse.";
       actionPoints_val = 0; 
     }
@@ -106,8 +107,8 @@ class Game extends Component{
     //put the pictures in the public folder for root access  
     this.setState({
       toggleOn: !this.state.toggleOn,
-      die1: "/alien-assets/d" + randomDie1 + ".gif",
-      die2: "/alien-assets/d" + randomDie2 + ".gif",
+      die1: "alien-assets/d" + randomDie1 + ".gif",
+      die2: "alien-assets/d" + randomDie2 + ".gif",
       userHealth: userHealth_val,
       actionPoints: actionPoints_val,
       alienHealth: alienHealth_val,
@@ -128,16 +129,16 @@ class Game extends Component{
       alienHealth_val -= 300;
       actionPoints_val -= 45;
       console.log(actionPoints_val);
-      image = "/Images/woman_fighting.jpg";
+      image = "Images/woman_fighting.jpg";
       message = "Die, alien scum! You're welcome. Don't call again!";
     
     }else{
       message = "You don't have enough AP! The aliens attacked you for 50 health points!";
-      image = "/Images/fallen.jpg";
+      image = "Images/fallen.jpg";
       userHealth_val -= 50;
 
     }if(userHealth_val <= 0){
-      image = "/Images/you_died.jpg"; 
+      image = "Images/you_died.jpg"; 
       message = "GAME OVER! The Aliens are now experimenting on your corpse.";
       actionPoints_val = 0; 
 
@@ -168,7 +169,7 @@ class Game extends Component{
     message = "The Aliens are winning! You're failing the human race, coward! Get back in the fight!";
 
     if(userHealth_val <= 0){
-      image = "/Images/you_died.jpg"; 
+      image = "Images/you_died.jpg"; 
       message = "GAME OVER! The Aliens are now experimenting on your corpse.";
       actionPoints_val = 0; 
 
@@ -194,14 +195,14 @@ class Game extends Component{
     if(actionPoints_val <= 50){
         actionPoints_val += 15;
         message = "You gained 15 Action Points!";
-        image = "/Images/Sci-Fi-Crate.jpg"
+        image = "Images/Sci-Fi-Crate.jpg"
 
     }else{
       message = "You have enough Action Points!"
-      image = "/Images/full.jpg"
+      image = "Images/full.jpg"
 
     }if(userHealth_val <= 0){
-      image = "/Images/you_died.jpg"; 
+      image = "Images/you_died.jpg"; 
       message = "GAME OVER! The Aliens are now experimenting on your corpse.";
       actionPoints_val = 0; 
 
@@ -222,15 +223,15 @@ class Game extends Component{
     if(userHealth_val <= 250){
         userHealth_val += 50;
         message = "You gained 50 Health Points!";
-        image = "/Images/health.png";
+        image = "Images/health.png";
 
     }else{
       message = "You have enough Health!";
-      image = "/Images/full.jpg"
+      image = "Images/full.jpg"
       
 
     }if(userHealth_val <= 0){
-        image = "/Images/you_died.jpg"; 
+        image = "Images/you_died.jpg"; 
         message = "GAME OVER! The Aliens are now experimenting on your corpse.";
         actionPoints_val = 0;
     }
@@ -269,7 +270,7 @@ class Game extends Component{
                 {"Alien's Health"}
                 <progress id = "alienHealth" value = {this.state.alienHealth} max = "1000"></progress>
                 {"Alien's Action Points"}
-                <progress id = "a_actionPoints" value = {this.state.a_actionPoints} max = "30"></progress>
+                <progress id = "a_actionPoints" value = {this.state.a_actionPoints} max = "50"></progress>
             </div>
           </div>  
 

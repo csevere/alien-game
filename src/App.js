@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="container Alien-Game">
         <audio controls>
-                <source src="/Images/illusions.mp3" type="audio/mpeg"/>
+                <source src="Images/illusions.mp3" type="audio/mpeg"/>
         </audio>
 
         <div className = "row">
@@ -28,7 +28,7 @@ class App extends Component {
         </div>
 
         <div className="img-center">
-          <img src = "/Images/spaceship_interior.jpg" className = "Alien-bg" id = "bg" alt = ""/>
+          <img src = "Images/spaceship_interior.jpg" className = "Alien-bg" id = "bg" alt = ""/>
         </div>
 
         <div className = "row">

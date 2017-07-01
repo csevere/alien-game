@@ -1,5 +1,6 @@
 {
-  "name": "alien-game",
+  "name": "alien-game", 
+  "homepage": "/alien-game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
