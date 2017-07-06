@@ -1,5 +1,10 @@
 //required dependencies 
 import React, {Component} from 'react';
+import Message from './Components/Message';
+import Image from './Components/Image';
+import Buttons from './Components/Buttons';
+import Progress from './Components/Progress'; 
+import Dice from './Components/Dice'; 
 
 // set the variables of progress bars to use downstairs
 
@@ -13,8 +18,8 @@ var image = "";
 
 
 class Game extends Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     //set the initial state here to use downstairs! 
     this.state = {
       handleFight: true,
@@ -251,40 +256,17 @@ class Game extends Component{
   render(){ 
 
    return(
-      <div>
+      <div class = "container">
 
-          <div  className = "text-center" id = "alien">
-            <img src = {this.state.image} name = "alienImage" alt = ""/>
-          </div>
+          <Image image = {this.state.image}/>
         
+          <Message message = {this.state.message} />
 
-          <div id = "message" className = "text-center">{this.state.message}</div>
-         
+          <Progress health = {this.state.userHealth} ap = {this.state.actionPoints} ahealth = {this.state.alienHealth} aap = {this.state.a_actionPoints} />  
 
-          <div className = "text-center"> 
-            <div id = "bars" name = "progress">
-                Your Health
-                <progress id = "userHealth" value = {this.state.userHealth} max = "500"></progress>
-                Your Action Points
-                <progress id = "actionPoints" value = {this.state.actionPoints} max = "100"></progress>
-                {"Alien's Health"}
-                <progress id = "alienHealth" value = {this.state.alienHealth} max = "1000"></progress>
-                {"Alien's Action Points"}
-                <progress id = "a_actionPoints" value = {this.state.a_actionPoints} max = "50"></progress>
-            </div>
-          </div>  
+          <Buttons fight = {this.handleFight} help = {this.handleHelp} escape = {this.handleEscape} stamina = {this.handleStamina} health = {this.handleHealth}/>
 
-          <button className = "btn btn-default" onClick = {this.handleFight}>Fight!</button>
-          <button className = "btn btn-default" onClick = {this.handleHelp}>Get Help!</button>
-          <button className = "btn btn-default" onClick = {this.handleEscape}>RunAway!</button>
-          <button className = "btn btn-default" onClick = {this.handleStamina}>Use Stamina Pack!</button>
-          <button className = "btn btn-default" onClick = {this.handleHealth}>Use Health Pack!</button>
-          <button className = "btn btn-default" ><a href="javascript:history.go(0)">Replay!</a></button>
-
-          <div className = "row" id = "dice">
-            <img src = {this.state.die1} alt = ""/>
-            <img src = {this.state.die2} alt = ""/>
-          </div>
+          <Dice dieone = {this.state.die1} dietwo = {this.state.die2}  />
 
       </div>
 
@@ -295,4 +277,37 @@ class Game extends Component{
 
  
 export default Game
+
+
+
+
+// <div id = "message" className = "text-center">{this.state.message}</div>
+
+
+// <div className = "text-center"> 
+//    <div id = "bars" name = "progress">
+//       Your Health
+//       <progress id = "userHealth" value = {this.state.userHealth} max = "500"></progress>
+//       Your Action Points
+//       <progress id = "actionPoints" value = {this.state.actionPoints} max = "100"></progress>
+//       {"Alien's Health"}
+//       <progress id = "alienHealth" value = {this.state.alienHealth} max = "1000"></progress>
+//       {"Alien's Action Points"}
+//       <progress id = "a_actionPoints" value = {this.state.a_actionPoints} max = "50"></progress>
+//     </div>
+// </div>  
+
+
+// <button className = "btn btn-default" onClick = {this.handleFight}>Fight!</button>
+// <button className = "btn btn-default" onClick = {this.handleHelp}>Get Help!</button>
+// <button className = "btn btn-default" onClick = {this.handleEscape}>RunAway!</button>
+// <button className = "btn btn-default" onClick = {this.handleStamina}>Use Stamina Pack!</button>
+// <button className = "btn btn-default" onClick = {this.handleHealth}>Use Health Pack!</button>
+// <button className = "btn btn-default" ><a href="javascript:history.go(0)">Replay!</a></button>
+
+
+// <div className = "row" id = "dice">
+//   <img src = {this.state.die1} alt = ""/>
+//   <img src = {this.state.die2} alt = ""/>
+// </div>
 
