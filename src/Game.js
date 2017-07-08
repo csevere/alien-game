@@ -31,7 +31,7 @@ class Game extends Component{
       image: "Images/scaryaliens.jpeg" 
    
     }
-    //lots of binding for each click event 
+    //binding for each click event 
     this.handleFight = this.handleFight.bind(this)
     this.handleHelp = this.handleHelp.bind(this)
     this.handleEscape = this.handleEscape.bind(this)
@@ -57,6 +57,7 @@ class Game extends Component{
       image = "Images/alien_winning.jpg"
 
     }
+    
 
     if(randomDie1 + randomDie2 == 12){
       userHealth_val += 30;
@@ -88,24 +89,27 @@ class Game extends Component{
       console.log(userHealth_val,a_actionPoints_val);
     }
 
-
-    if(a_actionPoints_val <= 5){
+  if(a_actionPoints_val <= 5){
       a_actionPoints_val += 10;
 
-    }else if(a_actionPoints_val === 0){
-      image = "Images/rejoice.jpg";
-      message = "The Aliens ran away! Rejoice!";
-    } 
+  }else if(a_actionPoints_val === 0){
+    image = "Images/rejoice.jpg";
+    message = "The Aliens ran away! Rejoice!";
+  } 
 
-    if(alienHealth_val <= 0){
-      image = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
-      message = "You defeated the aliens and saved Earth!";
+  if(alienHealth_val <= 0){
+    image = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
+    message = "You defeated the aliens and saved Earth!";
 
-    }else if(userHealth_val <= 0){
-      image = "Images/you_died.jpg"; 
-      message = "GAME OVER! The Aliens are now experimenting on your corpse.";
-      actionPoints_val = 0; 
-    }
+  }else if(userHealth_val <= 0){
+    image = "Images/you_died.jpg"; 
+    message = "GAME OVER! The Aliens are now experimenting on your corpse.";
+    actionPoints_val = 0; 
+  }
+
+
+      
+  
 
         
     //set the state to be changed here!!
