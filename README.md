@@ -2,7 +2,7 @@
 
 
 ## About
-Alien Battlecraft is a fun sci-fi-inspired dice game allowing players to fight aliens that have invaded their spacecraft. Winning the game requires both a little strategy and good luck. 
+Alien Battlecraft is an interactive dice game in which players must fight aliens that have invaded their spacecraft. Winning requires some strategy and good luck. 
 
 <p align='center'>
   <img src="public/Images/alien.png">
