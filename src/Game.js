@@ -13,7 +13,7 @@ var actionPoints_val = 100;
 var alienHealth_val = 1000;
 var a_actionPoints_val = 50;  
 
-var message = ""; 
+var message = "hi"; 
 var image = ""; 
 
 
